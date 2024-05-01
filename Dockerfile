@@ -30,6 +30,10 @@ RUN apk update \
 	&& ln -s /usr/libexec/git-core/git-http-backend /usr/bin/git-http-backend \
 	&& mkdir -p /usr/src/docker_ph/
 
+RUN apk add ldb-dev libldap openldap-dev
+RUN docker-php-ext-install ldap
+RUN docker-php-ext-enable ldap
+
 COPY env_secrets_expand.sh docker-entrypoint.sh  wait-for.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/env_secrets_expand.sh \

@@ -1,32 +1,18 @@
 # Docker For [Phorge](https://we.phorge.it/) (with LDAP support)
 
-## Fork
-This is a fork of the great work from Zeigren/phorge_docker.
+## This is a Fork!
+This is a fork of the great work from [Zeigren/phorge_docker](https://github.com/Zeigren/phorge_docker).
 
 This version adds LDAP support to the PHP 7.4-fpm-alpine stack (which I needed).
 
 In the Wiki article there is an article how to migrate from an old Phabricator instance to Phorge.
 
-![Docker Image Size (latest)](https://img.shields.io/docker/image-size/zeigren/phorge/latest)
-![Docker Pulls](https://img.shields.io/docker/pulls/zeigren/phorge)
+There is no Docker Hub instance of this version, yet. My fork uses a extended Dockerfile (which also works). If somebody needs a Docker Hub image, please open an issue.
 
 ## Links
 
-### [Docker Hub](https://hub.docker.com/r/zeigren/phorge)
-
-### [ghcr.io](https://ghcr.io/zeigren/phorge_docker)
-
-### [GitHub](https://github.com/Zeigren/phorge_docker)
-
-### [Main Repository](https://phabricator.kairohm.dev/diffusion/53/)
-
-## Tags
-
-- latest
-- 1.1.0
-- 1.0.0
-
-Tag labels are based on the container image version and are entirely arbitrary
+- [GitHub Zeigren/phorge_docker](https://github.com/Zeigren/phorge_docker)
+  - There are also links to Docker Hub etc. 
 
 ## Stack
 
@@ -36,7 +22,7 @@ Tag labels are based on the container image version and are entirely arbitrary
 
 ## Usage
 
-Use [Docker Compose](https://docs.docker.com/compose/) or [Docker Swarm](https://docs.docker.com/engine/swarm/) to deploy. Containers are available from both Docker Hub and the GitHub Container Registry.
+~~Use [Docker Compose](https://docs.docker.com/compose/) or [Docker Swarm](https://docs.docker.com/engine/swarm/) to deploy. Containers are available from both Docker Hub and the GitHub Container Registry.~~ (see comment in the section Fork above)
 
 There are examples for using either [Caddy](https://caddyserver.com/) or [NGINX](https://www.nginx.com/) as the web server and examples for using Caddy, NGINX, or [Traefik](https://traefik.io/traefik/) for HTTPS (the Traefik example also includes using it as a reverse proxy). The NGINX examples are in the nginx folder.
 

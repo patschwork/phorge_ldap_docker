@@ -15,7 +15,7 @@ There is no Docker Hub instance of this version, yet. My fork uses a extended Do
 - `docker-compose.yml`:
   - MariaDB database files are stored as local sub-folder `./phorge_db` (not Docker volume)
   - Env variable MARIADB_AUTO_UPGRADE=1 added (this runs the tool `mysql_upgrade` on startup of the container. Important for migrations)
-  - Port for MariaDB chnaged from 3306 to 3308 (personal reason, change it back if you want ;-) )
+  - Port for MariaDB changed from 3306 to 3308 (personal reason, change it back if you want ;-) )
   - Use the modified Dockerfile to build the phorge container (instead of using the pre build container from Docker Hub)
 
 ## Links

@@ -5,7 +5,7 @@ This is a fork of the great work from [Zeigren/phorge_docker](https://github.com
 
 This version **adds LDAP support** to the PHP 7.4-fpm-alpine stack (which I needed).
 
-In the Wiki article there is an article how to migrate from an old Phabricator instance to Phorge.
+In the Wiki section is an [article](https://github.com/patschwork/phorge_ldap_docker/wiki/Migrate-from-(old)-Phabricator-to-Phorge) how to migrate from an old Phabricator instance to Phorge.
 
 There is no Docker Hub instance of this version, yet. My fork uses a extended Dockerfile (which also works). If somebody needs a Docker Hub image, please open an issue.
 

@@ -1,4 +1,11 @@
-# Docker For [Phorge](https://we.phorge.it/)
+# Docker For [Phorge](https://we.phorge.it/) (with LDAP support)
+
+## Fork
+This is a fork of the great work from Zeigren/phorge_docker.
+
+This version adds LDAP support to the PHP 7.4-fpm-alpine stack (which I needed).
+
+In the Wiki article there is an article how to migrate from an old Phabricator instance to Phorge.
 
 ![Docker Image Size (latest)](https://img.shields.io/docker/image-size/zeigren/phorge/latest)
 ![Docker Pulls](https://img.shields.io/docker/pulls/zeigren/phorge)

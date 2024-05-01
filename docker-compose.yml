@@ -12,7 +12,8 @@ services:
       - phorge
     ports:
       # CHANGE TO "80:80" IF USING CADDY FOR HTTPS
-      - "9080:80"
+      # - "9080:80"
+      - "80:80"  # use Caddy
       # UNCOMMENT IF USING CADDY FOR HTTPS
       # - "443:443"
     environment:
@@ -24,16 +25,20 @@ services:
     image: mariadb:latest
     # https://hub.docker.com/_/mariadb
     volumes:
-      - phorge_db:/var/lib/mysql
+      - ./phorge_db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=CHANGEME
+      - MARIADB_AUTO_UPGRADE=1 # run mysql_upgrade
     command: --innodb-buffer-pool-size=268435456 --local-infile=0 --max-allowed-packet=33554432 --sql-mode=STRICT_ALL_TABLES
     networks:
       - phorge_db
+    ports:
+      - 3308:3306
 
   phorge:
-    image: zeigren/phorge:latest # ghcr.io/zeigren/phorge_docker:latest
+    # image: zeigren/phorge:latest # ghcr.io/zeigren/phorge_docker:latest
     # https://hub.docker.com/r/zeigren/phorge
+    image: local/phorge
     volumes:
       - phorge_web:/var/www/html
       - phorge_ssh:/etc/ssh
@@ -42,7 +47,7 @@ services:
     environment:
       # set UPGRADE_ON_RESTART to true to update phorge
       - UPGRADE_ON_RESTART=true
-      - PH_BASE_URI=https://phorge.yourdomain.test
+      - PH_BASE_URI=https://phorge.yourdomain.test # create a /etc/hosts entry for 127.0.0.1...
       - PH_MYSQL_PASS=CHANGEME
       # - PH_CLUSTER_MAILERS=true
     networks:
@@ -51,6 +56,8 @@ services:
     ports:
       # SSH Port
       - 2530:2530
+    build:
+      dockerfile: ./Dockerfile
 
 volumes:
   phorge_db:

@@ -3,11 +3,20 @@
 ## This is a Fork!
 This is a fork of the great work from [Zeigren/phorge_docker](https://github.com/Zeigren/phorge_docker).
 
-This version adds LDAP support to the PHP 7.4-fpm-alpine stack (which I needed).
+This version **adds LDAP support** to the PHP 7.4-fpm-alpine stack (which I needed).
 
 In the Wiki article there is an article how to migrate from an old Phabricator instance to Phorge.
 
 There is no Docker Hub instance of this version, yet. My fork uses a extended Dockerfile (which also works). If somebody needs a Docker Hub image, please open an issue.
+
+### Changes
+
+- `Dockerfile`: added LDAP support
+- `docker-compose.yml`:
+  - MariaDB database files are stored as local sub-folder `./phorge_db` (not Docker volume)
+  - Env variable MARIADB_AUTO_UPGRADE=1 added (this runs the tool `mysql_upgrade` on startup of the container. Important for migrations)
+  - Port for MariaDB chnaged from 3306 to 3308 (personal reason, change it back if you want ;-) )
+  - Use the modified Dockerfile to build the phorge container (instead of using the pre build container from Docker Hub)
 
 ## Links
 
@@ -21,6 +30,8 @@ There is no Docker Hub instance of this version, yet. My fork uses a extended Do
 - MariaDB - database
 
 ## Usage
+
+Use `git clone` to make a local copy of this repository. Change into the directory and adjust your settings in the docker-compose.yaml file
 
 ~~Use [Docker Compose](https://docs.docker.com/compose/) or [Docker Swarm](https://docs.docker.com/engine/swarm/) to deploy. Containers are available from both Docker Hub and the GitHub Container Registry.~~ (see comment in the section [Fork](#this-is-a-fork) above)
 

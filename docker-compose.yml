@@ -57,6 +57,7 @@ services:
       # SSH Port
       - 2530:2530
     build:
+      context: .
       dockerfile: ./Dockerfile
 
 volumes:
